@@ -1,6 +1,7 @@
 package com.example.SpringWordCount;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +12,10 @@ import java.util.Map;
 
 public class WordController {
 
-    private final WordCounter wordCounter = new WordCounter();
+    @Autowired
+    WordCount config;
+
+    private final WordCounter wordCounter = new WordCounter(config);
 
     @PostMapping("/words/count")
     public Map<String, Integer> wordCounter(@RequestBody String words) throws JsonProcessingException {

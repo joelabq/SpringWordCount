@@ -3,16 +3,21 @@ package com.example.SpringWordCount;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Configuration
 public class WordCounter {
 
+    private final WordCount wordCount;
+
     @Bean
-    public WordCounter WordCounter() {
-        return new WordCounter();
+    public WordCounter getWordCounter(WordCount config) {
+        return new WordCounter(config);
+    }
+
+    public WordCounter(WordCount wordCount) {
+        this.wordCount = wordCount;
     }
 
     Map<String, Integer> count(String inputWords){
