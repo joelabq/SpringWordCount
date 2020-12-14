@@ -22,7 +22,7 @@ public class WordCounter {
 
         for (String keyVal : keyVals) {
             words.merge(keyVal, 1, Integer::sum);
-            System.out.println(keyVal);
+
         }
 
         return words;
