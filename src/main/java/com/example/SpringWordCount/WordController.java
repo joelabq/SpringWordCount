@@ -12,10 +12,12 @@ import java.util.Map;
 
 public class WordController {
 
+//    @Autowired
+//    WordCount config;
     @Autowired
-    WordCount config;
+    WordCounter wordCounter;
 
-    private final WordCounter wordCounter = new WordCounter(config);
+    //private final WordCounter wordCounter = new WordCounter(config);
 
     @PostMapping("/words/count")
     public Map<String, Integer> wordCounter(@RequestBody String words) throws JsonProcessingException {

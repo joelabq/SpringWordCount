@@ -1,5 +1,6 @@
 package com.example.SpringWordCount;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,8 +23,6 @@ public class WordCounter {
     }
 
     Map<String, Integer> count(String inputWords){
-        System.out.println("Get words: "+this.wordCount.isCaseSensitive());
-        System.out.println(this.wordCount.getWords().getSkip().toString());
 
         if (!this.wordCount.isCaseSensitive()) inputWords = inputWords.toLowerCase(Locale.ROOT);
         for (String word : this.wordCount.getWords().getSkip()) {
