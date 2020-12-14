@@ -2,20 +2,18 @@ package com.example.SpringWordCount;
 
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@ConfigurationProperties("WordCount")
+@Component
+@ConfigurationProperties("wordcount")
 public class WordCount {
     private boolean caseSensitive;
     private Words words;
 
-    public WordCount(boolean caseSensitive, Words words) {
-        this.caseSensitive = caseSensitive;
-        this.words = words;
-    }
+      public boolean isCaseSensitive() {
 
-    public boolean isCaseSensitive() {
         return caseSensitive;
     }
 
